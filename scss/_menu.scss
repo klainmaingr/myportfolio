@@ -1,4 +1,5 @@
 .menu-btn {
+  //Position and format of the menu div
   position: absolute;
   right: 35px;
   top: 35px;
@@ -6,6 +7,7 @@
   cursor: pointer;
   @include easeOut;
 
+  //Format of the Menu button lines
   .btn-line {
     width: 28px;
     height: 3px;
@@ -27,11 +29,107 @@
       &:nth-child(2) {
         opacity: 0;
       }
-
       //Line 3 - Rotate
       &:nth-child(3) {
         transform: rotate(135deg) translate(-6px, 6px);
       }
     }
+  }
+}
+
+//Menu overlay
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+
+  &-branding,
+  &-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  //Nav bar format and transition from top
+
+  &-nav {
+    margin: 0;
+    padding: 0;
+    background: darken($primary-color, 5);
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
+    @include easeOut;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  //Branding format and transition from bottom (profile pic)
+
+  &-branding {
+    background: $primary-color;
+    @include easeOut;
+    transform: translate3d(0, 100%, 0);
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .portrait {
+      width: 250px;
+      height: 250px;
+      background: url("../img/portrait.jpg");
+      border-radius: 50%;
+      border: solid 3px $secondary-color;
+    }
+  }
+
+  .nav-item {
+    transform: translate3d(600px, 0, 0);
+    @include easeOut;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.current > a {
+      color: $secondary-color;
+    }
+  }
+
+  //Format of the Dropdown menu items
+
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    @include easeOut;
+  }
+}
+
+//Nav item Delay (How they fly in from the right)
+//This is a sass for function. For every item from 1 to 4  delay +0.1s (so they come in slowly and not all together)
+
+@for $x from 1 through 4 {
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
   }
 }
