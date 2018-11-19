@@ -1,9 +1,15 @@
 //XL Screens
 @include mediaXl {
+  .projects {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 //Desktop & Laptops
 @include mediaLg {
+  .projects {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 //Tablets
@@ -60,6 +66,10 @@
       "job3";
     grid-template-columns: 1fr;
   }
+
+  .projects {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 //Smartphones
@@ -76,5 +86,9 @@
     h2.sm-heading {
       font-size: 1rem;
     }
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
   }
 }
