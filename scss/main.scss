@@ -89,6 +89,10 @@ main {
     border: solid 3px $secondary-color;
   }
 
+  ul {
+    text-align: left;
+  }
+
   .bio {
     grid-area: bio;
     font-size: 1.5rem;
@@ -132,6 +136,65 @@ main {
   }
 }
 
+//Contact Me
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 2rem;
+    border: solid 3px #fff;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    @include easeOut;
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background: $secondary-color;
+      color: set-text-color($secondary-color);
+      span {
+        color: set-text-color($secondary-color);
+      }
+    }
+  }
+}
+
+.contact-form {
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 1rem;
+  }
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    font-size: 1rem;
+    background-color: $secondary-color;
+    color: set-text-color($secondary-color);
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+  }
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+}
 //Button Styles
 
 .btn {
@@ -148,7 +211,7 @@ main {
 
 .btn-dark {
   @extend.btn;
-  background: darken($color: $primary-color, $amount: 50);
+  background: darken($color: $primary-color, $amount: 15);
   color: #fff;
 }
 
