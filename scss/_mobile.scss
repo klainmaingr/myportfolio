@@ -10,6 +10,31 @@
   .projects {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  .about-info {
+    grid-template-areas:
+      "bioimage"
+      "bio"
+      "bio"
+      "job1"
+      "job2"
+      "job3";
+    grid-template-columns: 1fr;
+  }
+
+  .skill-info {
+    grid-template-areas:
+      "skill1"
+      "skill2"
+      "skill3"
+      "skill4"
+      "skill5"
+      "skill6"
+      "skill7"
+      "skill8"
+      "skill9";
+    grid-template-columns: 1fr;
+  }
 }
 
 //Tablets
@@ -64,6 +89,20 @@
       "job1"
       "job2"
       "job3";
+    grid-template-columns: 1fr;
+  }
+
+  .skill-info {
+    grid-template-areas:
+      "skill1"
+      "skill2"
+      "skill3"
+      "skill4"
+      "skill5"
+      "skill6"
+      "skill7"
+      "skill8"
+      "skill9";
     grid-template-columns: 1fr;
   }
 

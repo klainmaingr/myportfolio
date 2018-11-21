@@ -117,6 +117,63 @@ main {
   }
 }
 
+//Skills
+
+.skill-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "skill1 skill2 skill3"
+    "skill4 skill5 skill6"
+    "skill7 skill8 skill9";
+  grid-template-columns: 1fr 1fr 1fr;
+
+  ul {
+    text-align: left;
+  }
+
+  .skill-1 {
+    grid-area: skill1;
+  }
+
+  .skill-2 {
+    grid-area: skill2;
+  }
+  .skill-3 {
+    grid-area: skill3;
+  }
+  .skill-4 {
+    grid-area: skill4;
+  }
+  .skill-5 {
+    grid-area: skill5;
+  }
+  .skill-6 {
+    grid-area: skill6;
+  }
+  .skill-7 {
+    grid-area: skill7;
+  }
+  .skill-8 {
+    grid-area: skill8;
+  }
+  .skill-9 {
+    grid-area: skill9;
+  }
+
+  .skill {
+    background: lighten($color: $primary-color, $amount: 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 3px solid;
+
+    &:hover {
+      opacity: 1;
+      border: solid 2px $secondary-color;
+      @include easeOut;
+    }
+  }
+}
+
 //Projects
 
 .projects {

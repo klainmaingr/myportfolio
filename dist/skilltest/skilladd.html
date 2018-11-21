@@ -1,0 +1,28 @@
+<div>
+  <form action="/skilltest" method="POST" role="form" data-toggle="validator">
+    {{ csrf_tag }}
+    <input type="hidden" name="redirect_url" value="{% current_path %}" />
+    <div
+      class="form-group{% assign prev_posted_val=skills.skill %} {% assign errors=skills.errors.skill %} {% if errors %}has-error{% endif %}"
+    >
+      {% assign prev_posted_val = skills.skill %} <label> Skill </label>
+      <input
+        type="text"
+        value="{% if prev_posted_val %}{{prev_posted_val}}{% else %}{% endif %}"
+        class="form-control input"
+        name="skills[skill]"
+        placeholder=""
+      />
+      {% if errors and errors.size == 1 %}
+      <p class="text-danger">{{ errors.first.message }}</p>
+      {% endif %} {% if errors and errors.size != 1 %}
+      <ul class="text-danger" style="padding-left: 18px">
+        {% for error in errors %}
+        <li>{{ error.message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    <button class="btn btn-default" type="submit">Button</button>
+  </form>
+</div>
