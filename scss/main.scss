@@ -30,7 +30,7 @@ h3 {
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
-    background: rgba(lighten($primary-color, 2), 0.5);
+    background: rgba(lighten($primary-color, 4), 0.5);
   }
 }
 
@@ -114,6 +114,13 @@ main {
     background: lighten($color: $primary-color, $amount: 5);
     padding: 0.5rem;
     border-bottom: $secondary-color 5px solid;
+    box-shadow: 0 10px 5px -4px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease-out;
+    &:hover {
+      opacity: 1;
+      box-shadow: none;
+      @include easeOut;
+    }
   }
 }
 
@@ -159,16 +166,19 @@ main {
   }
   .skill-9 {
     grid-area: skill9;
+    border: 3px dashed #ddd;
   }
 
   .skill {
     background: lighten($color: $primary-color, $amount: 5);
     padding: 0.5rem;
     border-bottom: $secondary-color 3px solid;
+    box-shadow: 0 10px 5px -4px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease-out;
 
     &:hover {
       opacity: 1;
-      border: solid 2px $secondary-color;
+      box-shadow: none;
       @include easeOut;
     }
   }
