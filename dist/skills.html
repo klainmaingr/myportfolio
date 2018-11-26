@@ -10,236 +10,239 @@
       integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
       crossorigin="anonymous"
     />
+    <link rel="shortcut icon" type="image/png" href="{% file_asset_url 'favicon.png' %}"/>
     <link rel="stylesheet" href="css/main.css" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <title>My Skills!</title>
+ 
   </head>
 
   <body>
-    <header>
-      <div class="menu-btn">
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
-      </div>
-
-      <nav class="menu">
-        <div class="menu-branding"><div class="portrait"></div></div>
-        <ul class="menu-nav">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="about.html" class="nav-link">About Me</a>
-          </li>
-          <li class="nav-item">
-            <a href="work.html" class="nav-link">Projects</a>
-          </li>
-          <li class="nav-item current">
-            <a href="skills.html" class="nav-link">Skills</a>
-          </li>
-          <li class="nav-item ">
-            <a href="contact.html" class="nav-link">Contact Me</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main id="Contact">
-      <h1 class="lg-heading">My <span class="text-secondary">Skills</span></h1>
-      <h2 class="sm-heading">Education</h2>
-
-      <div class="skill-info">
-          <div class="skill skill-1">
-              <h3><span class="text-secondary">Executive MBA – Master of Business Administration</span></h3>
-              <h5>University of Sheffield (#13 UK, #75 World) - Graduated with Merit, AMBA, CMI Accredited</h5>
-              <p>
-               <ul>
-                 <li><i>Thesis:</i> Free to play – Revisited. Customer segmentation, Dynamic Pricing and consumer behaviour. A guideline for game design, consumer segments and monetization that improves pricing, game quality and development. </li>
-                 <br>
-                 <li><i>Selected Courses:</i>Organizational Behaviour, Logistics & Supply Chain Management, Strategy Formulation & Business Decision, Leading & Managing People, Developing Business Processes & Operations, Business Strategy, Strategic Brand Management, New Product & Service Development, Information Management </li>
-               </ul>
-              </p>
-          </div>
+      <header>
+        <div class="menu-btn">
+          <div class="btn-line"></div>
+          <div class="btn-line"></div>
+          <div class="btn-line"></div>
+        </div>
   
-          <div class="skill skill-2">
-              <h3><span class="text-secondary">B.Sc in Physical Education</span></h3>
-              <h5>Aristotle University of Thessaloniki  - Graduated with Upper Second Class Honors 2:1</h5>
-              <p>
-               <ul>
-                 <li><i> Selected Courses:</i>  Teaching, Psychology, Anatomy, Biochemistry, Physiotherapy, Coaching, Marketing. </li>
-                 <br>
-                 <li><i>Specialization:</i>  Goal oriented Mental and Physical Discipline. Classroom practice on elementary and Junior High. </li>
-               </ul>
-              </p>
-          </div>
+        <nav class="menu">
+          <div class="menu-branding"><div class="portrait"></div></div>
+          <ul class="menu-nav">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a href="work.html" class="nav-link">Projects</a>
+            </li>
+            <li class="nav-item current">
+              <a href="skills.html" class="nav-link">Skills</a>
+            </li>
+            <li class="nav-item ">
+              <a href="contact.html" class="nav-link">Contact Me</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
   
-          <div class="skill skill-3">
-              <h3> <span class="text-secondary">   Languages</span>  </h3>
-              <h5></h5>
-              <p>
-               <ul>
-                 <li><strong>Greek:</strong> Native language</li>
-                 <li><strong> English:</strong> Native level.   <small> (C2) | University of Cambridge & Michigan</small></li>
-                 <li> <strong> Italian:</strong> Advanced level. <small>(B2) | Universita di Perugia</small></li>
-                 <li><strong> French:</strong> B1 level</li>
-                 <li><strong> Dutch:</strong> B1 level</li>
-               </ul>
-              </p>
-          </div>
-        </div>
- 
-      <h2 class="sm-heading">Software Skills</h2>
-      <div class="skill-info">
-          <div class="skill skill-4">
-              <h3><span class="text-secondary">General</span></h3>
-              <p>
-               <ul>
-                 <li>Salesforce</li>
-                 <li>Topdesk</li>
-                 <li>Microsoft Office (Certified)</li>
-                 <li>OBS Streaming</li>
-                 <li>Slack</li>
-                 <li>Trello</li>
-                 <li>Gantter</li>
-                 <li>Amadeus</li>
-                 <li>bbForum</li>
-                 <li>phpBB</li>
-               </ul>
-              </p>
-          </div>
+      <main id="Contact">
+        <h1 class="lg-heading">My <span class="text-secondary">Skills</span></h1>
+        <h2 class="sm-heading">Business Skills & Education</h2>
   
-          <div class="skill skill-5">
-              <h3><span class="text-secondary">Design</span></h3>
+        <div class="skill-info">
+              <div class="skill skill-1">
+                      <h3><span class="text-secondary">Added by Guests</span></h3>
+                      <div class=" contact-form form-area">
+                          <ul id="tasks">{% for skill in skilltree %}
+                              <li>{{ skill.skill }}</li>
+                              {% endfor %}</ul>
+                            <a id="reset" href="">Reset all tasks</a>
+                              <form id="tasks-form">
+                                <label for="task">Add a skill</label>
+                                <input id="task" autofocus>
+                                <input type="submit">
+                              </form>
+                            </div>
+                          
+                            
+                  </div>
+            <div class="skill skill-2">
+                <h3><span class="text-secondary">Executive MBA – Master of Business Administration</span></h3>
+                <h5>University of Sheffield (#13 UK, #75 World) - Graduated with Merit, AMBA, CMI Accredited</h5>
+                <p>
+                 <ul>
+                   <li><i>Thesis:</i> Free to play – Revisited. Customer segmentation, Dynamic Pricing and consumer behaviour. A guideline for game design, consumer segments and monetization that improves pricing, game quality and development. </li>
+                   <br>
+                   <li><i>Selected Courses:</i>Organizational Behaviour, Logistics & Supply Chain Management, Strategy Formulation & Business Decision, Leading & Managing People, Developing Business Processes & Operations, Business Strategy, Strategic Brand Management, New Product & Service Development, Information Management </li>
+                 </ul>
+                </p>
+            </div>
+    
+            <div class="skill skill-3">
+                <h3><span class="text-secondary">B.Sc in Physical Education</span></h3>
+                <h5>Aristotle University of Thessaloniki  - Graduated with Upper Second Class Honors 2:1</h5>
+                <p>
+                 <ul>
+                   <li><i> Selected Courses:</i>  Teaching, Psychology, Anatomy, Biochemistry, Physiotherapy, Coaching, Marketing. </li>
+                   <br>
+                   <li><i>Specialization:</i>  Goal oriented Mental and Physical Discipline. Classroom practice on elementary and Junior High. </li>
+                 </ul>
+                </p>
+            </div>
+    
+            
+          </div>
+   
+        <h2 class="sm-heading">Software Skills</h2>
+        <div class="skill-info">
+            <div class="skill skill-4">
+                <h3><span class="text-secondary">General</span></h3>
+                <p>
+                 <ul>
+                   <li>Salesforce</li>
+                   <li>Topdesk</li>
+                   <li>Adyen</li>
+                   <li>Microsoft Office (Certified)</li>
+                   <li>OBS Streaming</li>
+                   <li>Slack, Trello</li>
+                   <li>Gantter</li>
+                   <li>Amadeus</li>
+                 </ul>
+                </p>
+            </div>
+    
+            <div class="skill skill-5">
+                <h3><span class="text-secondary">Design</span></h3>
+                <p>
+                 <ul>
+                   <li>Solidworks</li>
+                   <li>Autodesk Fusion 360</li>
+                   <li>Adobe Photoshop CS6</li>
+                   <li>Google SketchUp 3D</li>
+                   <li>Google Layout</li>
+                   <li>Gimp</li>
+                   <li>Adobe Illustrator</li>
+                   <li>Flexbox</li>
+                 </ul>
+                </p>
+            </div>
+  
+            <div class="skill skill-6">
+                <h3><span class="text-secondary">Development</span></h3>
+                <p>
+                 <ul>
+                   <li>Wordpress, cpanel</li>
+                   <li>HTML5, CSS, Sass, JS</li>
+                   <li>GIT</li>
+                   <li>Joomla, konsoleH</li>
+                   <li>Python, Jupyter, Pycharm</li>
+                   <li>Sublime, VC Code, Brackets</li>
+                   <li>VMware, XAMPP</li>
+                   <li>bbForum, phpBB, IPBoard</li>
+                 </ul>
+                </p>
+            </div>
+          </div>
+        </div>
+  
+        <h2 class="sm-heading">Other</h2>
+  
+        <div class="skill-info">
+          <div class="skill skill-7">
+              <h3><span class="text-secondary">Certificates and Seminars</span></h3>
               <p>
                <ul>
-                 <li>Solidworks</li>
-                 <li>Autodesk Fusion 360</li>
-                 <li>Google SketchUp & Layout </li>
-                 <li>Adobe Photoshop CS6</li>
-                 <li>Gimp</li>
-                 <li>Adobe Illustrator</li>
-                 <li>Flexbox</li>
+                 <li>Concepts of Scrum, Agile and Project Delivery</li>
+                 <li>Data Science, Applied plotting, charting and Data representation in Python</li>
+                 <li>Product Design in Autodesk Fusion360: From Idea to Prototype</li>
+                 <li>Javascript for Beginners</li>
+                 <li>Executive Coaching Seminar</li>
+                 <li>Project Resilience: Understanding the impact of the financial crisis on the economic resilience of entrepreneurship</li>
+                 <li>Negotiation and Intercultural Communication Skills Seminar</li>
                </ul>
               </p>
           </div>
-
-          <div class="skill skill-6">
-              <h3><span class="text-secondary">Development</span></h3>
-              <p>
-               <ul>
-                 <li>Joomla</li>
-                 <li>Wordpress</li>
-                 <li>Python</li>
-                 <li>Python</li>
-                 <li>Jupyter</li>
-                 <li>Sublime</li>
-                 <li>VC Code</li>
-                 <li>GIT</li>
-                 <li>HTML, CSS, JS</li>
-                 <li>VMware</li>
-                 <li>XAMPP</li>
-               </ul>
-              </p>
-          </div>
+          <div class="skill skill-8">
+                  <h3> <span class="text-secondary">   Languages</span>  </h3>
+                  <h5></h5>
+                  <p>
+                   <ul>
+                     
+                     <li><strong> English:</strong> Native level.   <small> (C2) | University of Cambridge & Michigan</small></li>
+                     <li><strong> Dutch:</strong> B1 level</li>
+                     <li><strong> French:</strong> B1 level</li>
+                     <li> <strong> Italian:</strong> Advanced level. <small>(B2) | Universita di Perugia</small></li>
+                     <li><strong>Greek:</strong> Native language<small> (C2)</small></li>
+                   </ul>
+                  </p>
+              </div>
+  
+  
+              <div class="skill skill-9">
+                      <h3><span class="text-secondary">Hobbies & Interests</span></h3>
+                      <p>
+                       <ul>
+                         <li>Travelling</li>
+                         <li>Crossfit, Tennis, Swimming</li>
+                         <li>Music, Films and Series</li>
+                         <li>PC Master race/Console gamer and Achievement hunter</li>
+                         <li>PC building / Hardware modding</li>
+                         <li>PADI Scuba Diver</li>
+                         <li>Certified Skipper</li>
+                         <li>Completed Army duty (Airforce)</li>
+                         <li>EU Car and Motorcycle licence.</li>
+                       </ul>
+                      </p>
+                  </div>
         </div>
-      </div>
-
-      <h2 class="sm-heading">Other</h2>
-
-      <div class="skill-info">
-        <div class="skill skill-7">
-            <h3><span class="text-secondary">Workshops and Seminars</span></h3>
-            <p>
-             <ul>
-               <li>Concepts of Scrum, Agile and Project Delivery</li>
-               <li>Data Science, Applied plotting, charting and Data representation in Python</li>
-               <li>Product Design in Autodesk Fusion360: From Idea to Prototype</li>
-               <li>Javascript for Beginners</li>
-               <li>Executive Coaching Seminar</li>
-               <li>Project Resilience: Understanding the impact of the financial crisis on the economic resilience of entrepreneurship</li>
-               <li>Negotiation and Intercultural Communication Skills Seminar</li>
-             </ul>
-            </p>
-        </div>
-        <div class="skill skill-8">
-            <h3><span class="text-secondary">Hobbies & Interests</span></h3>
-            <p>
-             <ul>
-               <li>Travelling</li>
-               <li>Crossfit</li>
-               <li>Tennis</li>
-               <li>Music, Films and Series</li>
-               <li>PC Master race/Console gamer and Achievement hunter</li>
-               <li>PC builder</li>
-               <li>PADI Scuba Diver</li>
-               <li>Certified Skipper</li>
-               <li>Completed Army duty (Airforce)</li>
-               <li>EU Car and Motorcycle licence.</li>
-             </ul>
-            </p>
-        </div>
-        <div class="skill skill-9">
-            <h3><span class="text-secondary">Skills added by Guests</span></h3>
-            <ul>
-              {% for skill in skilltree %}
-              <li>{{ skill.skill }}</li>
-              {% endfor %}
-              <li>Placeholder</li>
-            </ul>
-        </div>
-      </div>
-
-
-
-      <div class="contact-form">
-        <h2 class="sm-heading">Did i forget something?</h2>
-        <form
-          action="/skilladd"
-          method="POST"
-          role="form"
-          data-toggle="validator"
-        >
-          {{ csrf_tag }}
-          <input type="hidden" name="redirect_url" value="{% current_path %}" />
-
-          <div
-            class="form-group{% assign prev_posted_val=skills.skill %} {% assign errors=skills.errors.skill %} {% if errors %}has-error{% endif %}"
+        
+        <div class="contact-form">
+          <h2 class="sm-heading">Did i forget something?</h2>
+          <form
+            action="/skilladd"
+            method="POST"
+            role="form"
+            data-toggle="validator"
           >
-            <label for="fname">Endorse Me</label>
-            <input
-              type="text"
-              value="{% if prev_posted_val %}{{prev_posted_val}}{% else %}{% endif %}"
-              class="form-control input"
-              name="skills[skill]"
-              placeholder=""
-            />
-
-            {% if errors and errors.size == 1 %}
-            <p class="text-danger">{{ errors.first.message }}</p>
-            {% endif %} {% if errors and errors.size != 1 %}
-            <ul class="text-danger" style="padding-left: 18px">
-              {% for error in errors %}
-              <li>{{ error.message }}</li>
-              {% endfor %}
-            </ul>
-            {% endif %}
-          </div>
-
-          <div><input type="submit" value="Submit" /></div>
-        </form>
-      </div>
-
-      <div class="boxes">
-        <div>
-          <a href="index.html">
-            <span class="text-secondary">Press me:</span> To Go back</a
-          >
+            {{ csrf_tag }}
+            <input type="hidden" name="redirect_url" value="{% current_path %}" />
+  
+            <div
+              class="form-group{% assign prev_posted_val=skills.skill %} {% assign errors=skills.errors.skill %} {% if errors %}has-error{% endif %}"
+            >
+              <label for="fname">Endorse Me</label>
+              <input
+                type="text"
+                value="{% if prev_posted_val %}{{prev_posted_val}}{% else %}{% endif %}"
+                class="form-control input"
+                name="skills[skill]"
+                placeholder=""
+              />
+  
+              {% if errors and errors.size == 1 %}
+              <p class="text-danger">{{ errors.first.message }}</p>
+              {% endif %} {% if errors and errors.size != 1 %}
+              <ul class="text-danger" style="padding-left: 18px">
+                {% for error in errors %}
+                <li>{{ error.message }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+  
+            <div><input type="submit" value="Submit" /></div>
+          </form>
         </div>
-      </div>
-    </main>
+      </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/localedit.js"></script>
+
 
     <footer id="main-footer">Copyright &copy; G. Kountardas 2018</footer>
 
-    <script src="js/main.js"></script>
+
   </body>
 </html>
